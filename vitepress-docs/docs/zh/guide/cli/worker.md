@@ -25,7 +25,9 @@ wrangler kv:namespace create DEV
 ```toml
 name = "cloudflare_temp_email"
 main = "src/worker.ts"
-compatibility_date = "2023-12-01"
+compatibility_date = "2024-09-23"
+compatibility_flags = [ "nodejs_compat" ]
+
 # 如果你想使用自定义域名，你需要添加 routes 配置
 # routes = [
 #  { pattern = "temp-email-api.xxxxx.xyz", custom_domain = true },
@@ -95,8 +97,12 @@ ENABLE_AUTO_REPLY = false
 # CF_TURNSTILE_SECRET_KEY = ""
 # telegram bot 最多绑定邮箱数量
 # TG_MAX_ADDRESS = 5
+# telegram BOT_INFO，预定义的 BOT_INFO 可以降低 webhook 的延迟
+# TG_BOT_INFO = "{}"
 # 全局转发地址列表，如果不配置则不启用，启用后所有邮件都会转发到列表中的地址
 # FORWARD_ADDRESS_LIST = ["xxx@xxx.com"]
+# 前端地址，用于发送 webhook 的邮件 url
+# FRONTEND_URL = "https://xxxx.xxx"
 
 # D1 数据库的名称和 ID 可以在 cloudflare 控制台查看
 [[d1_databases]]
